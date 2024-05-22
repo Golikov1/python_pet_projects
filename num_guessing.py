@@ -9,16 +9,14 @@ n = random.randint(1, 100)
 
 def is_valid(num):
     if num.isdigit() and 1 <= int(num) <= 100:
-        return True
+        return int(num)
     else:
         return False
-
-if __name__ == '__main__':
-    print('Добро пожаловать в числовую угадайку')
+def guess_number(n):
     while True:
         num = input('Введите число от 0 до 100:')
-        if is_valid(num):
-            num = int(num)
+        num = is_valid(num)
+        if num:
             if num > n:
                 print('Ваше число больше загаданного, попробуйте еще разок')
                 continue
@@ -31,3 +29,8 @@ if __name__ == '__main__':
                 break
         else:
             print('А может быть все-таки введем целое число от 1 до 100?')
+
+
+if __name__ == '__main__':
+    print('Добро пожаловать в числовую угадайку')
+    guess_number(n)
