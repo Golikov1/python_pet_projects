@@ -5,14 +5,15 @@
 # Если догадка меньше случайного числа, то программа должна вывести сообщение 'Слишком мало, попробуйте еще раз'.
 # Если пользователь угадывает число, то программа должна поздравить его и вывести сообщение 'Вы угадали, поздравляем!'
 import random
-n = random.randint(1, 100)
 
 def is_valid(num):
     if num.isdigit() and 1 <= int(num) <= 100:
         return int(num)
     else:
         return False
-def guess_number(n):
+def guess_number():
+    n = random.randint(1, 100)
+    print(n)
     while True:
         num = input('Введите число от 0 до 100:')
         num = is_valid(num)
@@ -24,8 +25,7 @@ def guess_number(n):
                 print('Ваше число меньше загаданного, попробуйте еще разок')
                 continue
             else:
-                print('Вы угадали, поздравляем!')
-                print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
+                print('Вы угадали, поздравляем!', 'Спасибо, что играли в числовую угадайку. Еще увидимся...', sep='\n')
                 break
         else:
             print('А может быть все-таки введем целое число от 1 до 100?')
@@ -33,4 +33,4 @@ def guess_number(n):
 
 if __name__ == '__main__':
     print('Добро пожаловать в числовую угадайку')
-    guess_number(n)
+    guess_number()
